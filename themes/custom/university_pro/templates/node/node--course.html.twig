@@ -1,0 +1,23 @@
+<section id="course_detail">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 mx-auto">
+				<div class="section_title mx-auto" data-aos="fade-up">
+					<h2>{{ node.title.value }}</h2>
+				</div>
+				<div class="course_image" data-aos="fade-up">
+					<img src="{{file_url(node.field_image.entity.uri.value)}}" alt="{{node.field_image.alt}}" title ="{{node.field_image.title}}">
+				</div>
+				<div class="row">
+					<div class="col-lg-6 course_left_desc my-auto" data-aos="fade-up">
+					<p>{{ content.field_course_left_description }}</p>
+					</div>
+					<div class="col-lg-6 course_right_desc my-auto" data-aos="fade-up">
+						<p>{{ content.field_description }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{{ content.field_course_sections }}

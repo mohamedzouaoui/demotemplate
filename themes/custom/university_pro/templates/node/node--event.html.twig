@@ -1,0 +1,31 @@
+<section id="event">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mx-auto">
+        <div class="card">
+          <div class="hovereffect" data-aos="fade-up">
+             <img src="{{file_url(node.field_image.entity.uri.value)}}" 
+             alt="{{node.field_image.alt}}" 
+             title ="{{node.field_image.title}}" class="img-fluid">
+          </div>
+          <div class="card-body">
+            <h2>{{ node.title.value }}</h2>
+           <div class="created_loc">
+              <div class="row">
+                  <div class="col-md-6" data-aos="fade-up">
+                    <p><span class="campus"><i class="fa fa-map-marker" aria-hidden="true"></i></span>{{ node.field_campus_name.value }}</p>
+                  </div>
+                  <div class="col-md-6" data-aos="fade-up">
+                    <p class="date"><span><i class="fa fa-calendar" aria-hidden="true"></i></span>{{node.field_date.value|date("d M")}},  {{node.field_date.value|date("Y")}}</p>
+                  </div> 
+              </div>                 
+            </div>
+            <div class="event_body">
+              {{ content.body }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

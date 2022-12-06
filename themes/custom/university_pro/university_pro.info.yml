@@ -1,0 +1,45 @@
+name: University Pro
+type: theme
+description: 'Drupal 8 theme perfect for Universities'
+# version: VERSION
+core: 8.x
+core_version_requirement: ^8 || ^9
+base theme: bootstrap_barrio
+screenshot: university_pro.png
+
+libraries:
+  - university_pro/libraries.jquery.select2
+  - university_pro/global-styling
+  
+regions:
+  header: Header
+  tabs: Tabs
+  multilingual_header_1: 'Multilingual Header 1'
+  multilingual_header_2: 'Multilingual Header 2'
+  multilingual_header_3: 'Multilingual Header 3'
+  multilingual_header_4: 'Multilingual Header 4'
+  logo: 'Logo'
+  footer_logo: 'Footer Logo'
+  primary_menu: 'Primary menu'
+  search: 'Search'
+  search_header_1: 'Search Header 1'
+  search_header_2: 'Search Header 2'
+  search_header_3: 'Search Header 3'
+  search_header_4: 'Search Header 4'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar Left'
+  sidebar_second: 'Sidebar Right'
+  featured_bottom: 'Featured bottom'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_four: 'Footer four'
+  footer_menu: 'Footer Menu'
+
+# Information added by Drupal.org packaging script on 2020-04-20
+version: '8.x-1.0'
+project: 'university_pro'
+datestamp: 1587345808

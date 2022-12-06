@@ -1,0 +1,7 @@
+name: University Custom Module
+type: module
+configure: university.configuration
+description: 'University Custom Module For Specific Developement.'
+package: Custom
+version: 1.0
+core_version_requirement: ^8 || ^9

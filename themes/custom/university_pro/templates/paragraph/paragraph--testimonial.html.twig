@@ -1,0 +1,19 @@
+<div class="item" data-aos="fade-up">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="section-image">
+				<img src="{{ file_url(content.field_image['#items'].entity.uri.value)}}"
+		 	  alt="{{ content.field_image['#items'].alt }}" 
+		 	  title="{{ content.field_image['#items'].title }}">
+			</div>
+			<div class="section-content mx-auto">
+			    <div class="testimonial-content">
+			        <p class="description">{{content.field_description.0}}</p>
+			        <div class="subtext"><p>- {{content.field_name.0}}</p>
+			       </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+    

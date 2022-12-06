@@ -1,0 +1,26 @@
+
+<div class="cycle-slideshow-slide slide-{{menu_type}}" style="background-image: url('{{ fields.field_background_image.content}}');">
+	<div class="overlay {{content_position}}">
+		<div class="container">
+			<div class="row">
+				<div class="content col-md-8">
+			        <span class="tagline sliderwow {{animations.tagline.animation}}" 
+			        	data-wow-duration="{{animations.tagline.duration}}s" 
+			        	data-wow-delay="{{animations.tagline.delay}}s">
+						{{ fields.field_subtitle.content}}
+					</span>
+			        <h2 class="sliderwow {{animations.title.animation}}" 
+			        	data-wow-duration="{{animations.title.duration}}s" 
+			        	data-wow-delay="{{animations.title.delay}}s">
+			        	{{ fields.title.content}}
+			        </h2>
+			        <p class="sliderwow {{animations.description.animation}}" 
+			        	data-wow-duration="{{animations.description.duration}}s" 
+			        	data-wow-delay="{{animations.description.delay}}s">
+						{{ fields.field_description.content}}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

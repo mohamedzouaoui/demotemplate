@@ -1,0 +1,27 @@
+<section id="admin_process">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<div class="section_title mx-auto" data-aos="fade-up">
+					<h2>{{content.field_title.0}}</h2>
+					<p>{{content.field_description.0}}</p>
+				</div>
+				<div class="process">
+					{% for item in content.field_admission_step['#items'] %}
+					<div class="row step">
+						<div class="col-1 col-lg-1 process_index" data-aos="fade-up">
+							{{loop.index}}
+						</div>
+						<div class=" col-10 col-lg-2 process_title" data-aos="fade-up">
+							{{item.entity.field_title.0.getValue()['value']}}
+						</div>
+						<div class=" col-12 col-lg-9 process_step" data-aos="fade-up">
+							{{item.entity.field_content.0.getValue()['value']|striptags('<b>,<strong>,<p>,<a>,<pre>,<i>')|raw}}
+						</div>
+					</div>						
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

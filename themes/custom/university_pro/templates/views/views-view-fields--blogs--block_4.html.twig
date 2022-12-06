@@ -1,0 +1,30 @@
+<div class="col-lg-3" data-aos="fade-up">
+   <div class="card">
+      <div class="hovereffect">
+        <a href='{{fields.view_node.content}}'>
+      	 {{fields.field_image.content}}
+        </a>
+      </div>
+      <div class="created">
+         <p class="date">{{ fields.created_1.content|date("d")  }}</p>
+         <p class="mnth_yr">{{ fields.created_1.content|date("M y")  }}</p>
+      </div>               
+      <div class="card-body">
+        <a href='{{fields.view_node.content}}' title="{{fields.title.content}}">
+          <h3>{{fields.title.content}}</h3>
+        </a>
+        <div class="blog_sub_details row">
+          <span><p><i class="fa fa-user" aria-hidden="true"></i>{{fields.uid.content}}</p></span>
+          <span><p><i class="fas fa-comment"></i>{{fields.comment_count.content}}</p></span>
+        </div>
+        <div class="blog_body">
+          <p>{{fields.body.content}}</p>
+          <div class="btn_row">
+            <a class="primary-btn" href='{{fields.view_node.content}}'>
+  					 {{fields.nothing.content}}
+  			    </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<form{{ attributes }}>
+      {{ element.elements.name }}
+      {{ element.elements.email }}
+      {{ element.elements.phone }}
+      {{ element.elements.country }}
+      {{ element.elements.course }}
+      {{ element.elements.semester }}
+      {{ element.elements.message }}
+      {{ element.form_token }}
+      {{ element.form.token }}
+      {{ element.form_build_id }}
+      {{ element.form_id }}
+      {{ element.elements.actions }}
+
+  {{ title_prefix }}
+  {{ element.message }}
+  {{ title_suffix }}
+</form>
+

@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function university_theme($existing, $type, $theme, $path) {
+	return array(
+		'chiffres_cles' => array(
+		'variables' => array(
+			'title' => '',
+			'items' => array(),
+		  ),
+		  'path' => drupal_get_path('module', 'university') . '/templates/page',
+		),
+	);
+	
+}

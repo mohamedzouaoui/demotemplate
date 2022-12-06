@@ -1,0 +1,30 @@
+{% set base_url = url('<front>')  %}
+<!-- Login -->
+  <section id="login">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12 mx-auto" data-aos="fade-up">
+          <div class="login-form">
+            <h2>User Login</h2>
+            <form>
+              <div class="col-md-12 form-group">
+                {{ form.name }}
+              </div>
+              <div class="col-md-12 form-group">
+                {{ form.pass }}
+              </div>
+              <div class="col-md-12 form-group req-pass">
+                <a href="{{ base_url }}user/password" alt="Request new password via email">Forgot password?</a>
+              </div>
+              <div class="login-button text-center">
+                {{ form.form_build_id }}
+                {{ form.form_id }}
+                {{ form.actions }}
+              </div>
+            </form>
+          </div>  
+        </div>
+      </div>    
+    </div>
+  </section>
+<!-- Login End -->

@@ -1,0 +1,15 @@
+<section class="university_Features_right">
+  <div class="container">
+    <div class="row"> 
+      <div class="col-md-10 col-lg-6 mx-auto section-content" data-aos="fade-up">
+        <h2>{{content.field_title.0}}</h2>
+        <p>{{content.field_content.0}}</p>
+      </div>
+      <div class="col-md-10 col-lg-6 mx-auto section-image" data-aos="fade-up">
+        <div class="pt-image mx-auto">
+          <img src="{{ file_url(content.field_image['#items'].entity.uri.value)}}" alt="{{ content.field_image['#items'].alt }}" title="{{ content.field_image['#items'].title }}">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

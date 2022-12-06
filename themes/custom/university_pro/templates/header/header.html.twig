@@ -1,0 +1,338 @@
+ <!-- Navigation bar -->
+  <section id="pt-header">
+    <!-- Event Page -->
+      {% if header_variation == 'header-1' %}
+        {% set active_1 = 'active' %}
+      {% elseif header_variation == 'header-2' %}
+        {% set active_2 = 'active' %}
+      {% elseif header_variation == 'header-3' %}
+        {% set active_3 = 'active' %}
+      {% elseif header_variation == 'header-4' %}
+        {% set active_4 = 'active' %}
+      {% endif %}
+    <!-- Check for header style -->
+    <div id="{{header_variation}}" class="pt_nav_header">
+      <!-- Header Style 1 -->
+      <div class="pt_header_type header-1 {{active_1}}">
+        <!-- Top bar -->
+        <div class="topbar">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 topbar_left my-auto">
+                <ul>
+                  <li><a href="tel:{{phone}}"><i class="fas fa-phone-alt"></i> {{phone}}</a></li>
+                  <li><a href="mailto:{{email}}"><i class="fa fa-envelope"></i>{{mail}}</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 topbar_right my-auto">
+                <ul>
+                  {% if logged_in %}
+                  <li> <a href="{{base_url}}/user/logout"><i class="fa fa-user"></i> Logout</a></li>
+                  {% else %}
+                  <li><a href="{{base_url}}/user"><i class="fa fa-user"></i> Login</a></li>
+                  {% endif %}
+                  {% if page.multilingual_header_1 %}
+                    <li>{{ page.multilingual_header_1 }}</li>
+                  {% endif %}
+                  <li class="social_link"><a href="{{facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                  <li class="social_link"><a href="{{twitter}}"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+              </div>
+            </div><!-- end row -->
+          </div> <!-- end container -->
+        </div>
+        <!-- Top Bar End -->
+        <!-- Main Header -->
+        <header>
+          <div class="container">
+            <div class="row">
+              <div class="menu_bar">
+                <nav id="pt-navbar" class="navbar navbar-expand-lg custom-navbar">
+                  <div class="container">
+                    {{ page.logo }}
+                    <!-- Mobile Menu Toggle Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler fas fa-bars"></span>
+                    </button>
+                    <!-- end of mobile menu toggle button -->
+                    <!-- menus -->
+                    <div class="collapse navbar-collapse justify-content-end navbarsExampleDefault" id="navbarsExampleDefault">
+                      {{ page.primary_menu }}
+                    </div>        
+                    <!-- End of Menus-->
+                  </div><!-- End of Container-->
+                </nav> <!-- End of Nav-->
+              </div>
+              <div class="search">
+                {{page.search_header_1}}
+              </div>
+            </div><!-- Row End -->
+          </div> <!-- Container End --> 
+        </header>
+        <!-- Main Haeder End -->
+      </div>
+      <!-- End of Header Style 1 -->
+      <!-- Header Style 2 -->
+      <div class="pt_header_type header-2 {{active_2}}">
+        <!-- Top bar -->
+        <div class="topbar">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 topbar_left my-auto">
+                <ul>
+                  <li><a href="tel:{{phone}}"><i class="fas fa-phone-alt"></i> {{phone}}</a></li>
+                  <li><a href="mailto:{{email}}"><i class="fa fa-envelope"></i>{{mail}}</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 topbar_right my-auto">
+                <ul>
+                  {% if page.multilingual_header_2 %}
+                    <li>{{ page.multilingual_header_2 }}</li>
+                  {% endif %}
+                  <li class="social_link"><a href="{{facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                  <li class="social_link"><a href="{{twitter}}"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+              </div>
+            </div><!-- end row -->
+          </div> <!-- end container -->
+        </div>
+        <!-- Top Bar End -->
+        <!-- Main Header -->
+        <header class="pt-site-navbar">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="menu_bar">
+                <nav id="pt-navbar" class="navbar navbar-expand-lg custom-navbar pt-site-navigation position-relative text-right text-md-right" role="navigation">
+                  <div class="container">
+                    {{ page.logo }}
+                    <!-- Burger menu toggle btn -->
+                    <div class="d-inline-block ml-md-0 ml-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="fas fa-bars"></span></a></div>
+                    <!-- End -->
+                    <!-- menus -->
+                    <div class="collapse navbar-collapse justify-content-end navbarsExampleDefault">
+                      {{ page.primary_menu }}
+                      <ul class="login_text">
+                        {% if logged_in %}
+                        <li> <a href="{{base_url}}/user/logout"><i class="fa fa-user"></i> Logout</a></li>
+                        {% else %}
+                        <li><a href="{{base_url}}/user"><i class="fa fa-user"></i> Login</a></li>
+                        {% endif %}
+                      </ul>
+                    </div>        
+                    <!-- End of Menus-->
+                  </div><!-- End of Container-->
+                </nav> <!-- End of Nav-->
+              </div>
+              <div class="search">
+                {{page.search_header_2}}
+              </div>
+              <!-- Admission Button -->
+                <a type="button" class="btn secondary-btn" title="{{btn_title}}" href="{{base_url}}{{btn_link}}" >
+                  {{btn_title}}
+                </a>
+              <!-- End OF Request button -->
+            </div><!-- Row End -->
+          </div> <!-- Container End --> 
+                  <!-- Buger menu on mobile -->
+        <div class="pt-site-mobile-menu">
+          <div class="pt-site-mobile-menu-header">
+            <div class="pt-site-mobile-menu-close mt-3">
+              <span class="js-menu-toggle"><i class="far fa-window-close"></i></span>
+            </div>
+          </div>
+          <div class="pt-site-mobile-menu-body">
+            <div class="pt-site-mobile-menu-links"></div>
+            <div class="pt-site-mobile-submenu">
+              <ul class="login_text">
+                {% if logged_in %}
+                <li> <a href="{{base_url}}/user/logout"><i class="fa fa-user"></i> Logout</a></li>
+                {% else %}
+                <li><a href="{{base_url}}/user"><i class="fa fa-user"></i> Login</a></li>
+                {% endif %}
+              </ul>
+           <!-- Admission Button -->
+              <a type="button" class="btn secondary-btn" title="{{btn_title}}" href="{{base_url}}{{btn_link}}" >
+                {{btn_title}}
+              </a>
+            <!-- End OF Request button -->
+            </div>
+          </div>
+        </div>
+        <!-- end -->
+        </header>
+        <!-- Main Haeder End -->
+      </div>
+      <!-- End of Header Style 2 -->
+      <!-- Header Style 3 -->
+      <div class="pt_header_type header-3 {{active_3}}">
+        <!-- Top bar -->
+        <div class="topbar">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 topbar_left my-auto">
+                <ul>
+                  <li><a href="tel:{{phone}}"><i class="fas fa-phone-alt"></i> {{phone}}</a></li>
+                  <li><a href="mailto:{{email}}"><i class="fa fa-envelope"></i>{{mail}}</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 topbar_right my-auto">
+                <ul>
+                  {% if logged_in %}
+                  <li> <a href="{{base_url}}/user/logout"><i class="fa fa-user"></i> Logout</a></li>
+                  {% else %}
+                  <li><a href="{{base_url}}/user"><i class="fa fa-user"></i> Login</a></li>
+                  {% endif %}
+                  {% if page.multilingual_header_3 %}
+                    <li>{{ page.multilingual_header_3 }}</li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div><!-- end row -->
+          </div> <!-- end container -->
+        </div>
+        <!-- Top Bar End -->
+        <!-- Main Header -->
+        <header class="pt-site-navbar">
+          <div class="container">
+            <div class="row">
+              <div class="menu_bar">
+                <div class="pt-table">
+                  <div class="pt-table-left pt_logo">
+                    {% if page.footer_logo %}
+                      {{ page.footer_logo }}
+                    {% else %}
+                      <a class="navbar-brand" href="/" title="home">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="378.923" height="72" viewBox="0 0 378.923 72">
+                          <g id="Group_212" data-name="Group 212" transform="translate(-970 -3686)">
+                            <text id="University" transform="translate(1256 3745)" fill="#fff" font-size="60" font-family="Lato-Black, Lato" font-weight="800"><tspan x="-285.54" y="0">University</tspan></text>
+                            <g id="Group_210" data-name="Group 210" transform="translate(-1066.779 3436.5)">
+                              <path id="Path_30" data-name="Path 30" d="M14613,275v33h69.058l-12.043-33Z" transform="translate(-12268.5 0)" stroke-width="3"/>
+                              <text id="Pro" transform="translate(2359 298.5)" fill="#fff" font-size="20" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="0" y="0">Pro</tspan></text>
+                            </g>
+                          </g>
+                        </svg>
+                      </a>
+                    {% endif %}
+                  </div>
+                  <div class="pt-table-left pt_search">
+                    {{page.search_header_3}}
+                  </div>
+                  <!-- Burger menu toggle btn -->
+                    <div class="site-menu-toggle"><a href="#" class="js-menu-toggle"><span class="fas fa-bars"></span></a></div>
+                  <!-- End -->
+                </div>
+                <nav id="pt-navbar" class="navbar navbar-expand-lg custom-navbar pt-site-navigation position-relative text-right text-md-right" role="navigation">
+                  <div class="container">
+                    <!-- menus -->
+                    <div class="collapse navbar-collapse justify-content-end navbarsExampleDefault" id="navbarsExampleDefault">
+                      {{ page.primary_menu }}
+                    </div>        
+                    <!-- End of Menus-->
+                    <ul class="social_header">
+                      <li class="social_link"><a href="{{facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                      <li class="social_link"><a href="{{twitter}}"><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                  </div><!-- End of Container-->
+                </nav> <!-- End of Nav-->
+              </div>
+            </div><!-- Row End -->
+          </div> <!-- Container End --> 
+                  <!-- Buger menu on mobile -->
+        <div class="pt-site-mobile-menu">
+          <div class="pt-site-mobile-menu-header">
+            <div class="pt-site-mobile-menu-close mt-3">
+              <span class="js-menu-toggle"><i class="far fa-window-close"></i></span>
+            </div>
+          </div>
+          <div class="pt-site-mobile-menu-body">
+            <div class="pt-site-mobile-menu-links"></div>
+            <div class="pt-site-mobile-submenu">
+              <ul class="login_text">
+                <li class="social_link"><a href="{{facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="social_link"><a href="{{twitter}}"><i class="fab fa-twitter"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end -->
+        </header>
+        <!-- Main Haeder End -->
+      </div>
+      <!-- End of Header Style 3 -->
+      <!-- Header Style 4 -->
+      <div class="pt_header_type header-4 {{active_4}}">
+        <!-- Top bar -->
+        <div class="topbar">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 topbar_left my-auto">
+                <ul>
+                  <li><a href="tel:{{phone}}"><i class="fas fa-phone-alt"></i> {{phone}}</a></li>
+                  <li><a href="mailto:{{email}}"><i class="fa fa-envelope"></i>{{mail}}</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 topbar_right my-auto">
+                <ul>
+                  {% if logged_in %}
+                  <li> <a href="{{base_url}}/user/logout"><i class="fa fa-user"></i> Logout</a></li>
+                  {% else %}
+                  <li><a href="{{base_url}}/user"><i class="fa fa-user"></i> Login</a></li>
+                  {% endif %}
+                  {% if page.multilingual_header_4 %}
+                    <li>{{ page.multilingual_header_4 }}</li>
+                  {% endif %}
+                  <li class="social_link"><a href="{{facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                  <li class="social_link"><a href="{{twitter}}"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+              </div>
+            </div><!-- end row -->
+          </div> <!-- end container -->
+        </div>
+        <!-- Top Bar End -->
+        <!-- Main Header -->
+        <header class="pt-site-navbar">
+          <div class="container">
+            <div class="row">
+              <div class="menu_bar">
+                <nav id="pt-navbar" class="navbar navbar-expand-lg custom-navbar pt-site-navigation">
+                  <div class="container">
+                    {% if page.footer_logo %}
+                      {{ page.footer_logo }}
+                    {% else %}
+                      <a class="navbar-brand" href="/" title="home">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="378.923" height="72" viewBox="0 0 378.923 72">
+                          <g id="Group_212" data-name="Group 212" transform="translate(-970 -3686)">
+                            <text id="University" transform="translate(1256 3745)" fill="#fff" font-size="60" font-family="Lato-Black, Lato" font-weight="800"><tspan x="-285.54" y="0">University</tspan></text>
+                            <g id="Group_210" data-name="Group 210" transform="translate(-1066.779 3436.5)">
+                              <path id="Path_30" data-name="Path 30" d="M14613,275v33h69.058l-12.043-33Z" transform="translate(-12268.5 0)" stroke-width="3"/>
+                              <text id="Pro" transform="translate(2359 298.5)" fill="#fff" font-size="20" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="0" y="0">Pro</tspan></text>
+                            </g>
+                          </g>
+                        </svg>
+                      </a>
+                    {% endif %}
+                    <!-- Mobile Menu Toggle Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler fas fa-bars"></span>
+                    </button>
+                    <!-- end of mobile menu toggle button -->
+                    <!-- menus -->
+                    <div class="collapse navbar-collapse justify-content-end navbarsExampleDefault" id="navbarsExampleDefault">
+                      {{ page.primary_menu }}
+                    </div>        
+                    <!-- End of Menus-->
+                  </div><!-- End of Container-->
+                </nav> <!-- End of Nav-->
+              </div>
+              <div class="search">
+                {{page.search_header_4}}
+              </div>
+            </div><!-- Row End -->
+          </div> <!-- Container End --> 
+        </header>
+        <!-- Main Haeder End -->
+      </div>
+      <!-- End of Header Style 4 -->
+    </div>
+  </section>
+  <!-- End of Navigation bar -->

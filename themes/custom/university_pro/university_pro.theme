@@ -1,0 +1,346 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the University Pro theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function university_pro_preprocess_menu(&$variables, $hook) {
+  if ($hook == 'menu__main') { // We're doing that for main menu.
+    // Get the current path.
+    $current_path = \Drupal::request()->getRequestUri();
+    $items = $variables['items'];
+    foreach ($items as $key => $item) {
+      // If path is current_path, set active to li.
+      if ($item['url']->toString() == $current_path) {
+        // Add active link.
+        $variables['items'][$key]['cactive'] = 'active';
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function university_pro_preprocess_page(&$variables) {
+  global $base_url;
+  $variables['base_url'] = $base_url;
+  // header
+  $variables['header_variation'] = theme_get_setting('header_variation');
+  $variables['btn_title'] = theme_get_setting('btn_title');
+  $variables['btn_link'] = theme_get_setting('btn_link');
+  
+  // Personal Section Variables
+  $variables['mail'] = theme_get_setting('mail');
+  $variables['phone'] = theme_get_setting('phone');
+  // Footer Section variables
+  $variables['twitter'] = theme_get_setting('twitter');
+  $variables['follow_us'] = theme_get_setting('follow_us');
+  $variables['facebook'] = theme_get_setting('facebook');
+  $variables['instagram'] = theme_get_setting('instagram');
+  $variables['linkedin'] = theme_get_setting('linkedin');
+  $variables['copyright'] = theme_get_setting('copyright')['value'];
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+}
+/**
+ * Implements hook_maintenance_page().
+ */
+function university_pro_preprocess_maintenance_page(&$variables) {
+  $variables['mail'] = theme_get_setting('mail');
+  $variables['phone'] = theme_get_setting('phone');
+  $variables['facebook'] = theme_get_setting('facebook');
+  $variables['twitter'] = theme_get_setting('twitter');
+  $variables['mode_type'] = theme_get_setting('mode_type');
+  $variables['maintenance_mode_title'] = theme_get_setting('maintenance_mode_title');
+  $variables['maintenance_mode_description'] = theme_get_setting('maintenance_mode_description'); 
+  $variables['bg_image'] = theme_get_setting('bg_image'); 
+  $variables['date'] = theme_get_setting('date'); 
+  $variables['custom_message'] = theme_get_setting('custom_message');
+  $variables['#attached'] = [
+      'drupalSettings' => [
+          'custom_date' => $variables['custom_date'] = theme_get_setting('date'),
+          'custom_message_dateExpired' => $variables['custom_message_dateExpired'] = theme_get_setting('custom_message'),
+      ],
+  ];
+  $path = "";
+  if (!empty(theme_get_setting('bg_image'))) {
+    $fid = theme_get_setting('bg_image')[0];
+    if (!empty($fid)) {
+    $file =File::load($fid);
+    $path = file_create_url($file->getFileUri());
+    }
+  }
+  $variables['bg_image_url'] = $path;
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function university_pro_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__'.$content_type;
+  }
+}
+/**
+ * Implements hook for login register pages.
+ */
+function university_pro_theme(&$existing, $type, $theme, $path) {
+ $hooks = array();
+ $hooks['user_login_form'] = array(
+  'render element' => 'form',
+  'template' => 'user-login-form',
+ );
+ $hooks['user_register_form'] = array(
+  'render element' => 'form',
+  'template' => 'user-register-form',
+);
+  $hooks['user_pass'] = array(
+  'render element' => 'form',
+  'template' => 'user-pass-form',
+  );
+ return $hooks;
+}
+/**
+ * Implements hook_preprocess_page().
+ */
+function university_pro_preprocess_html(&$variables) {
+  $variables['show_pannel'] = theme_get_setting('show_pannel');
+  // header
+  $variables['header_variation'] = theme_get_setting('header_variation');
+  $variables['stricky'] = theme_get_setting('stricky');
+  $variables['loader'] = theme_get_setting('loader');
+  $variables['styles'] = theme_get_setting('styles');
+  // header
+  $variables['primary_colors'] = explode(',', theme_get_setting('primary_colors'));
+  $variables['secondary_colors'] = explode(',', theme_get_setting('secondary_colors'));
+  $variables['color_set'] = ['set_1' => [
+      'title' => t('color_set_1'),
+      'name' => t('Combo 1'),
+      'colors' => [
+      'primary_color' => '#08387F',
+      'secondary_color' => '#29B6FF',
+      ],
+    ],
+    'set_2' => [
+      'title' => t('color_set_2'),
+      'name' => t('Combo 2'),
+      'colors' => [
+      'primary_color' => '#7ba021',
+      'secondary_color' => '#d0e431',
+      ],
+    ],
+    'set_3' => [
+      'title' => t('color_set_3'),
+      'name' => t('Combo 3'),
+      'colors' => [
+      'primary_color' => '#a24077',
+      'secondary_color' => '#f783bd',
+      ],
+    ],
+    'set_4' => [
+      'title' => t('color_set_4'),
+      'name' => t('Combo 4'),
+      'colors' => [
+      'primary_color' => '#ef2936',
+      'secondary_color' => '#fd7982',
+      ],
+    ],
+    'set_5' => [
+      'title' => t('color_set_5'),
+      'name' => t('Combo 5'),
+      'colors' => [
+      'primary_color' => '#f8af48',
+      'secondary_color' => '#f6d372',
+      ],
+    ],
+    'set_6' => [
+      'title' => t('color_set_6'),
+      'name' => t('Combo 6'),
+      'colors' => [
+      'primary_color' => '#014b5f',
+      'secondary_color' => '#59cad1',
+      ],
+    ],
+    'set_7' => [
+      'title' => t('color_set_7'),
+      'name' => t('Combo 7'),
+      'colors' => [
+      'primary_color' => '#711c82',
+      'secondary_color' => '#d3afda',
+      ],
+    ],
+    'set_8' => [
+      'title' => t('color_set_8'),
+      'name' => t('Combo 8'),
+      'colors' => [
+      'primary_color' => '#711c82',
+      'secondary_color' => '#ea27bf',
+      ],
+    ],
+    'set_9' => [
+      'title' => t('color_set_9'),
+      'name' => t('Combo 9'),
+      'colors' => [
+      'primary_color' => '#e6565e',
+      'secondary_color' => '#461215',
+      ],
+    ],
+    'set_10' => [
+      'title' => t('color_set_10'),
+      'name' => t('Combo 10'),
+      'colors' => [
+      'primary_color' => '#452e65',
+      'secondary_color' => '#937ab9',
+      ],
+    ],
+  ];
+}
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+
+function university_pro_preprocess_paragraph(&$variables) {
+ // $paragraph=$variables['paragraph'];
+  $request     = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $variables['title'] = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+  /*gallery_categories*/
+    //render block in view
+    $gallery_categories_block = \Drupal\block\Entity\Block::load('university_pro_views_block__gallery_categories_block_1');
+    $gallery_categories_content = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($gallery_categories_block);
+    $variables['gallery_categories'] = $gallery_categories_content;
+  /*gallery_categories*/
+}
+/**
+ * Implements hook_preprocess_node().
+ */
+function university_pro_preprocess_node(&$variables) {
+  $nid = $variables['node']->nid->value;
+  $database = \Drupal::database();
+  $num_comment = $database->query('SELECT comment_count FROM {comment_entity_statistics} WHERE entity_id = ' . $nid)->fetchAssoc();
+  if (!empty($num_comment['comment_count'])) {
+    $variables['comment_count'] = $num_comment['comment_count'];
+  }
+}
+/**
+ * Implements hook_preprocess_comment().
+ */
+function university_pro_preprocess_comment(&$variables) {
+  $d = $variables['comment']->getCreatedTime();
+  $datecontent = \Drupal::service('date.formatter')->formatInterval(REQUEST_TIME - $d);
+  $variables['date_created'] = date("d M,Y", $d);
+}
+function university_pro_preprocess_views_view_unformatted(&$variables) {
+   /*coursesweoffer*/
+    //render block in view
+    $coursesweoffer_block = \Drupal\block\Entity\Block::load('university_pro_coursesweoffer');
+    $coursesweoffer_content = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($coursesweoffer_block);
+    $variables['coursesweoffer'] = $coursesweoffer_content;
+  /*coursesweoffer*/
+}
+/**
+ * Implements hook_preprocess_breadcrumb().
+ */
+function university_pro_preprocess_views_view_fields(&$variables) {
+   $view = $variables['view'];
+   if($view->id() == 'banner'){
+    $block = \Drupal\block\Entity\Block::load('university_pro_breadcrumbs');
+    $variables['breadcrumb'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block);
+   }
+
+  if($view->id() == 'views_slideshow'){
+    $fields_animations=[
+      'title'=>t('Title'),
+      'tagline'=>t('TagLine'),
+      'description'=>t('Description'),
+    ];
+    $variables['animations']=[];
+    foreach ($fields_animations as $key => $value) {
+      $animation_key=$key.'_animation';
+      $duration_key=$key.'_duration';
+      $delay_key=$key.'_delay';
+      $data=[];
+      $data['animation'] = theme_get_setting($animation_key);
+      $data['duration'] = theme_get_setting($duration_key);
+      $data['delay'] = theme_get_setting($delay_key);
+      $variables['animations'][$key]=$data;
+    }
+    $variables['content_position'] = theme_get_setting('content_position');
+    $variables['menu_type'] = theme_get_setting('menu_type');
+  }
+}
+function university_pro_form_alter( &$form, &$form_state, $form_id ) {
+  
+  if (strpos($form_id, 'views_exposed_form') !== false) {
+    $form['field_department_target_id']['#options']['All']='Departments';
+    $form['field_department_target_id']['#attributes']['class'][]='yg-select';
+    $form['field_tags_target_id']['#options']['All']='Level';
+    $form['field_department_target_id']['#attributes']['class'][]='yg-select';
+  }
+  if ($form_id == 'user-login-form') {
+    $form['actions']['submit']['#attributes']['class'][]='primary-btn';
+  }
+  if ($form_id == 'user_register_form') {
+    $form['actions']['submit']['#value'] = t('Signup');
+    $form['actions']['submit']['#attributes']['class'][]='primary-btn';
+  }
+  if ($form_id == 'user_pass') {
+    $form['actions']['submit']['#value'] = t('Reset Password');
+    $form['actions']['submit']['#attributes']['class'][]='primary-btn';
+  }
+}
+
+function university_pro_form_search_block_form_alter(&$form, &$form_state){
+   $form['keys']['#attributes']['placeholder'][] = t('Search');
+  $form['actions']['submit']['#value'] = '';
+  $form['actions']['span']['#prefix'] = '<span class="search-icon">';
+  $form['actions']['span']['#suffix'] = '</span>';
+  $form['actions']['span']['#markup'] = '<i class="fas fa-search"></i>';
+}
+
+function university_pro_preprocess_field(&$variables) {
+  $element = $variables['element'];
+  if ($element['#field_type'] == 'comment') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof NodeInterface) {
+      // You can get nid and anything else you need from the node object.
+      $node = \Drupal::request()->attributes->get('node');
+      $nid = $node->id();
+      $database = \Drupal::database();
+      $num_comment = $database->query('SELECT comment_count FROM {comment_entity_statistics} WHERE entity_id = ' . $nid)->fetchAssoc();
+      $variables['comment_count'] = $num_comment['comment_count'];
+    }
+  }
+}
+/**
+ * Use language code for the language switcher
+*/
+function university_pro_preprocess_links__language_block(&$variables) {
+  $currentLanguageCode = \Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
+  foreach ($variables['links'] as $i => $link) {
+    /** @var \Drupal\language\Entity\ConfigurableLanguage $linkLanguage */
+    $variables['links'][$i]['link']['#options']['attributes']['class'][] = "dropdown-item";
+    $linkLanguage = $link['link']['#options']['language'];
+    if ($currentLanguageCode == $linkLanguage->getId()) {
+      $variables['links']['activeLink'] = $link;
+      unset($variables['links'][$i]);
+    }
+  }
+}

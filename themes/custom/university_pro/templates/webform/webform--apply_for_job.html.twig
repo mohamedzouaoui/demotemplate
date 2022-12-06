@@ -1,0 +1,41 @@
+<form{{ attributes }}>
+      <div class="row">
+            <div class="col-lg-12">
+                  {{ element.elements.name }}
+            </div>
+            <div class="col-lg-6">
+                  {{ element.elements.email_address }}
+            </div>
+            <div class="col-lg-6">
+                  {{ element.elements.address }}
+            </div>
+            <div class="col-lg-6">
+                  {{ element.elements.address_2 }}
+            </div>
+            <div class="col-lg-6">
+                  {{ element.elements.state_province }}
+            </div>
+            <div class="col-lg-6">
+                  {{ element.elements.pin_zip_code }}
+            </div>
+            <div class="col-lg-6">
+                  {{ element.elements.phone_number }}
+            </div>
+            <div class="col-lg-6">
+                  {{ element.elements.job_position }}
+            </div>
+             <div class="col-lg-6">
+                  {{ element.elements.start_date }}
+            </div>
+            <div class="col-lg-6">
+                  {{ element.elements.upload_cv }}
+            </div>
+            <div class="col-lg-12">
+                  {{ element.elements.actions }}
+            </div>
+      </div>
+      {{ element.form_token }}
+      {{ element.form_build_id }}
+      {{ element.form_id }}
+      {{ message }}
+</form>

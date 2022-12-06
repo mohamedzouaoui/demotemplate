@@ -1,0 +1,49 @@
+{%
+  set classes = [
+    'pt-' ~ id ~ '-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {% if header %}
+    {% if exposed %}
+     <div class="view-header">
+     </div>
+    {% else %}
+    <div class="view-header">
+      {{ header }}
+    </div>
+    {% endif %}
+  {% endif %}
+  {% if exposed %}
+    <section id="search_course" class="search_course_page">
+      <div class="container">
+        <div class="col-md-10 col-lg-6 mx-auto" data-aos="fade-up">
+          <h2>Search a Course</h2>
+          {% if header %}
+            <p>{{ header }}</p>
+          {% endif %}
+          <div class="search_course">
+            {{ exposed }}
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  {% if rows %}
+    <div class="view-content">
+      {{ rows }}
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+</div>

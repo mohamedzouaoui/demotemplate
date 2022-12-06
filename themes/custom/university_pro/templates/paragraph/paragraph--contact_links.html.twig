@@ -1,0 +1,8 @@
+<li class="contact_addr" data-aos="fade-up">
+	<h3><span>{{ content.field_icon.0 }}</span>{{content.field_title.0}}</h3>
+	{% for key,item in content.field_ul_links['#items'] %}
+		<a href="{{content.field_ul_links[key]['#url']}}">
+			{{content.field_ul_links[key]['#title']}}
+		</a>
+	{% endfor %}
+</li>

@@ -1,0 +1,79 @@
+{% set front_page = url('<front>')  %}
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer_top">
+        <div class="row">
+          <div class="footer_logo col-lg-8 col-md-8" data-aos="fade-up">
+            <!-- demo code -->
+            {% if page.footer_logo %}
+              {{ page.footer_logo }}
+            {% else %}
+              <a class="navbar-brand" href={{front_page}} title="home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="378.923" height="72" viewBox="0 0 378.923 72">
+                  <g id="Group_212" data-name="Group 212" transform="translate(-970 -3686)">
+                    <text id="University" transform="translate(1256 3745)" fill="#fff" font-size="60" font-family="Lato-Black, Lato" font-weight="800"><tspan x="-285.54" y="0">University</tspan></text>
+                    <g id="Group_210" data-name="Group 210" transform="translate(-1066.779 3436.5)">
+                      <path id="Path_30" data-name="Path 30" d="M14613,275v33h69.058l-12.043-33Z" transform="translate(-12268.5 0)" stroke-width="3"/>
+                      <text id="Pro" transform="translate(2359 298.5)" fill="#fff" font-size="20" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="0" y="0">Pro</tspan></text>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+            {% endif %}
+            <!-- end of demo code -->
+          </div>
+          <div class="footer_subscribe col-lg-4 col-md-4" data-aos="fade-up">
+              {{page.footer_four}}
+          </div>
+        </div>
+      </div><!--- End of Footer top -->
+      <div class="footer_center">
+        <div class="row">
+          <div class="col-lg-3 col-md-3">
+            {{page.footer_first}}
+          </div> 
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            {{page.footer_second}}
+          </div> 
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            {{page.footer_third}}
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="footer_social">
+              <h2 class="social_title">Follow Us</h2>
+              <div class="social_link">
+                {% if facebook %}
+                  <a href="{{facebook}}"><i class="fab fa-facebook-square"></i></a>
+                {% endif %}
+                {% if twitter %}
+                  <a href="{{twitter}}"><i class="fab fa-twitter-square"></i></a>
+                {% endif %}
+                {% if linkedin %}
+                  <a href="{{linkedin}}"><i class="fab fa-linkedin"></i></a>
+                {% endif %}
+                {% if instagram %}
+                  <a href="{{instagram}}"><i class="fab fa-instagram"></i></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div><!--- End of row -->
+      </div><!--- End of Footer center -->
+      <div class="footer_bottom">
+          <div class="row">
+            <div class="col-lg-9 col-md-6 p-0 c-order">
+              {% if copyright %}
+                {{copyright|striptags('<b>,<strong>,<p>,<a>,<pre>')|raw}}
+              {% endif %}
+            </div>
+            <div class="col-lg-3 col-md-6">
+              {% if page.footer_menu %}
+                {{page.footer_menu}}
+              {% endif %}
+            </div>
+          </div>
+      </div><!--- end of footer_bottom-->
+    </div> <!--- Container end -->
+  </footer>
+  <!-- End of Footer -->

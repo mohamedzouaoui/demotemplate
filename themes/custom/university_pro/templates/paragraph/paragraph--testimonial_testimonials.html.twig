@@ -1,0 +1,20 @@
+<div class="testimonials" data-aos="fade-up">
+	<div class="col-md-12 col-lg-5 mx-auto section-image">
+		<img src="{{ file_url(content.field_image['#items'].entity.uri.value)}}"
+		  alt="{{ content.field_image['#items'].alt }}" 
+		  title="{{ content.field_image['#items'].title }}">
+	</div>
+	<div class="col-md-10 col-lg-7 mx-auto section-content">
+	    <div class="testimonial-content">
+	        <div class="description">	
+	        	{{content.field_content.0}}
+	        </div>
+	        <div class="subtext">
+	        	<p>- {{content.field_name.0}}</p>
+	        </div>
+	        <div class="testimonial-designation">
+	        	<p>{{content.field_designation.0}}</p>
+	        </div>
+	    </div>
+	</div>
+</div>

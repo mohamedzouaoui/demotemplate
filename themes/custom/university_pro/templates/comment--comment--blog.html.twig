@@ -1,0 +1,50 @@
+{# {% set createdDate = created|date('Y-m-d') %}
+{% set createdTime = created|date('H:i:s') %}
+ #}
+
+{% if parent %}
+  <div class="comment-item middel-item">
+  	<div class="row">
+  		<div class="col-md-2">
+  			{{user_picture}}
+  		</div>
+  		<div class="col-md-10">
+    		<div class="row comment_top">
+          <div class="comment_user">
+            <p><span><i class="fas fa-user"></i></span>{{ author }}</p>
+          </div>
+          <div class="comment_date">
+            <p><span><i class="fas fa-calendar-alt"></i></span>{{ date_created }}</p>
+          </div>
+    		</div>
+        <div class="comment_content">
+          <p {{ content_attributes.addClass('comment__content') }}>
+            {{ content }}
+          </p>
+        </div>
+  		</div>
+  	</div>
+  </div>
+{% else %}
+  <div class="comment-item">
+  	<div class="row">
+  		<div class="col-md-2">
+  			{{user_picture}}
+  		</div>
+  		<div class="col-md-10">
+        <div class="row comment_top">
+          <div class="comment_user">
+            <p><span><i class="fas fa-user"></i></span>{{ author }}</p>
+          </div>
+          <div class="comment_date">
+            <p><span><i class="fas fa-calendar-alt"></i></span>{{ date_created }}</p>
+          </div>
+        </div>
+        <div class="comment_content">
+          {{ content }}
+        </div>
+	     </p>
+  		</div>
+  	</div>
+  </div>
+{% endif %}

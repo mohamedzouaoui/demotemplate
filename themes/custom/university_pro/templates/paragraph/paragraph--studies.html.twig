@@ -1,0 +1,20 @@
+{% if '#FFFFFF' in content.field_background_color.0 %}
+{% set bg = 'light' %}
+{% else %}
+{% set bg = 'dark'%}
+{% endif %}
+<section id="academic_studies_{{bg}}" class="academic_studies" style="background-color: {{content.field_background_color.0}}">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<div class="section_title mx-auto" data-aos="fade-up">
+					<h2>{{content.field_title.0}}</h2>
+					<p>{{content.field_description.0}}</p>
+				</div>
+				<div class="row {{ bg }} studies">
+					{{content.field_study}} 
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,115 @@
+{#
+/**
+ * @file
+ * Theme override to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess_maintenance_page()
+ */
+#}
+
+{% set base_url = url('<front>') %}
+{% if "1" in mode_type  %}
+  <!-- maintenance_mode -->
+  <section id="maintenance_mode">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 mx-auto">
+          <div class="mm-overlay text-center">
+            <h1 class="title">{{ maintenance_mode_title }}</h1>
+            {{ maintenance_mode_description }}
+          </div>
+          <div class="mm-image">
+            <img src="{{bg_image_m_url}}" alt="maintenance_mode">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="mm-cont-social">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto">
+          <div class="mm-contact" data-aos="fade-up">
+            <ul>
+              <li> Phone : <a href="tel:{{phone}}">{{phone}}</a></li>
+              <li> Email : <a href="mail:{{mail}}">{{mail}}</a></li>
+            </ul>
+          </div>
+          <div class="mm-social" data-aos="fade-up">
+            <h3>Follow Us</h3>
+            <ul>
+              {% if facebook|render is not empty %}
+                <li><a href="{{ facebook }}"><i class="fab fa-facebook"></i></a></li>
+              {% endif %}
+              {% if twitter|render is not empty %}
+                <li><a href="{{ twitter }}"><i class="fab fa-twitter"></i></a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- maintenance_mode End-->
+{% else %}
+  <!-- Coming Soon -->
+  <section id="coming-soon" style="background-image: url('{{ bg_image_url }}');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-10 col-lg-10 mx-auto">
+        <div class="cs-title" data-aos="fade-up">
+          <h1>{{coming_soon_title}}</h1>
+          <p>{{custom_message}}</p>
+        </div>
+        <div id="fh5co-main-content" data-aos="fade-up">
+          <div class="dt js-dt">
+            <div class="dtc js-dtc">
+              <div id="clockdiv" class="animate-box" data-animate-effect="fadeInUp">
+                <div class="cs-date">
+                <div class="date_expired"></div>
+                  <span class="days"></span>
+                  <div class="smalltext">Days</div>
+                </div>
+                <div class="cs-date">
+                  <div class="date_expired"></div>
+                  <span class="hours"></span>
+                  <div class="smalltext">Hours</div>
+                </div>
+                <div class="cs-date">
+                  <div class="date_expired"></div>
+                  <span class="minutes"></span>
+                  <div class="smalltext">Mins</div>
+                </div>
+                <div class="cs-date">
+                  <div class="date_expired"></div>
+                  <span class="seconds"></span>
+                  <div class="smalltext">Secs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="cs-cont-social">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto">
+                <div class="cs-contact">
+                  <ul>
+                    <li> <span>Phone</span> <a href="tel:{{phone}}">{{phone}}</a></li>
+                    <li> <span>Email</span> <a href="mail:{{mail}}">{{mail}}</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Coming Soon End -->
+{% endif %}

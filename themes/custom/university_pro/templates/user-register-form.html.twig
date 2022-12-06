@@ -1,0 +1,33 @@
+{% set base_url = url('<front>')  %}
+<!-- Reginster -->
+  <section id="login" class="register">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12 mx-auto" data-aos="fade-up">
+          <div class="login-form">
+            <h2>Signup</h2>
+            <form>
+              <div class="col-md-12 form-group">
+                {{ form.account.mail }}
+              </div>
+              <div class="col-md-12 form-group">
+                {{ form.account.name }}
+              </div>
+              <div class="col-md-12 form-group file">
+                {{ form.user_picture }}
+              </div>
+              <div class="login-button text-center">
+                {{ form.form_build_id }}
+                {{ form.form_id }}
+                {{ form.actions }}
+              </div>
+              <div class="col-md-12 form-group req-pass">
+                <p>Already Registerd?<a href="{{ base_url }}user/login" alt="Request new password via email">Login</a></p>
+              </div>
+            </form>
+          </div>  
+        </div>
+      </div>    
+    </div>
+  </section>
+<!-- Reginster end -->

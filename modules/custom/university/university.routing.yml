@@ -1,0 +1,7 @@
+university.get_chiffres_cles:
+  path: '/page/chiffres-cles'
+  defaults:
+    _controller: '\Drupal\university\Controller\UniversityController::get_chiffres_cles'
+    _title: 'Chiffres clés'
+  requirements: 
+    _permission: 'access content'

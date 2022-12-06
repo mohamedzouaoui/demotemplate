@@ -1,0 +1,6 @@
+<div class="button-group filters-button-group text-center">
+	<button class="button is-checked" data-filter="*">All</button>
+	{% for row in rows %}
+		{{ row.content }}
+	{% endfor %}
+</div>

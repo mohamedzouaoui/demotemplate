@@ -1,0 +1,31 @@
+
+<div class="cycle-slideshow-slide  slide-{{menu_type}}">
+    <div class="videoBlock">
+	    <video preload="" autoplay="" muted="true" playsinline="" loop="">
+	        <source src="{{ fields.field_video.content}}" type="video/mp4" />
+	    </video>
+    </div>
+	<div class="overlay {{content_position}}">
+		<div class="container">
+			<div class="row">
+				<div class="content col-md-8">
+			        <span class="tagline slider wow {{animations.anchor.animation}}" 
+			        	data-wow-duration="{{animations.anchor.duration}}s" 
+			        	data-wow-delay="{{animations.anchor.delay}}s">
+						{{ fields.field_subtitle.content}}
+					</span>
+			        <h2 class="slider wow {{animations.title.animation}}" 
+			        	data-wow-duration="{{animations.title.duration}}s" 
+			        	data-wow-delay="{{animations.title.delay}}s">
+			        	{{ fields.title.content}}
+			        </h2>
+			        <p class="slider wow {{animations.description.animation}}" 
+			        	data-wow-duration="{{animations.description.duration}}s" 
+			        	data-wow-delay="{{animations.description.delay}}s">
+						{{ fields.field_description.content}}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

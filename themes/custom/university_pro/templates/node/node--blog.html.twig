@@ -1,0 +1,49 @@
+<section id="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mx-auto" data-aos="fade-up">
+          <div class="card">
+            <div class="hovereffect">
+             <img src="{{file_url(node.field_image.entity.uri.value)}}" 
+             alt="{{node.field_image.alt}}" 
+             title ="{{node.field_image.title}}" class="img-fluid">
+              </div>
+             <div class="created col-lg-3">
+                <div class="row">
+                    <div class="date"><p>{{ fields.created_1.content|date("d")  }}</p></div>
+                    <div class="mnth_yr"><p>{{ fields.created_1.content|date("M")  }}</p>
+                      <p>{{ fields.created_1.content|date("Y")  }}</p></div>
+                </div>               
+             </div>
+              <div class="card-body">
+                  <h2>{{ node.title.value }}</h2>
+                  <div class="blog_sub_details row">
+                    <span>
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <p>{{node.owner.name.value}}</p>
+                    </span>
+                    <span>
+                      <i class="fa fa-comments-o" aria-hidden="true"></i>
+                      <p>{{comment_count}}</p>
+                    </span>
+                    <span>
+                      <i class="fas fa-tag"></i></i>
+                      <p>{{content.field_tags}}</p>
+                    </span>
+                  </div>
+                  <div class="blog_body">
+                      {{ content.body }}
+                  </div>
+              </div>
+            </div>
+        </div>
+          <!-- comment-list-->
+          <div class="col-lg-11 col-md-10 mx-auto">                  
+            <div class="comment-row">
+               {{content.comment}}
+            </div>
+          </div>
+          <!-- comment-form-end --> 
+      </div>
+  </div>
+</section>

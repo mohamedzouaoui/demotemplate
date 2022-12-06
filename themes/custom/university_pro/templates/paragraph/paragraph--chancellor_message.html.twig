@@ -1,0 +1,19 @@
+<!-- Chancellor Message -->
+<section id="chancellor_message">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 chancellor-image" data-aos="fade-up">
+				<img src="{{ file_url(content.field_image['#items'].entity.uri.value)}}" alt="{{ content.field_image['#items'].alt }}" title="{{ content.field_image['#items'].title }}" class="img-fluid">
+			</div>
+			<div class="col-md-8" data-aos="fade-up">
+				<div class="content">
+					<h2><p>{{content.field_description.0}}</p></h2>
+		        	<div class="subtext"><p>- {{content.field_name.0}}</p>
+		        	<p class="text-mute">{{content.field_designation.0}}</p>
+				</div>
+		       </div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End of Chancellor Message -->
